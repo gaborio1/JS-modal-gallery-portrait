@@ -1,0 +1,302 @@
+:root {
+    /* --main-background: #75bdc16f; */
+    --main-background: #ffffff;
+    --title-blue: #56d2e2;
+    --sub-title-orange: #fdae81;
+    --category-grey: #d6d6d6cf;
+    /* --category-grey: #56d2e2; */
+
+    --max-width: 100%;
+    --main-content-1400: 1400px;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* filter: grayscale(1); */
+}
+
+body {
+    /* font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    background: var(--main-background);
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: 100;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 200;
+}
+
+/* h3 {} */
+
+p {
+    font-size: 15px;
+    font-weight: 100;
+}
+
+
+
+/* ========== MAIN CONTENT ========== */
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--max-width);
+    height: fit-content;
+
+    /* border: 3px solid red; */
+}
+
+.main-coloumn {
+    /* z-index: -1; */
+    width: 90%;
+    max-width: var(--main-content-1400);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+    margin-bottom: 200px;
+    margin-top: 100px;
+
+    /* border: 3px solid orange; */
+}
+
+.category-title-container {
+    text-align: center;
+    margin: 45px 0px 90px 0px;
+    /* border: 3px solid cyan; */
+}
+
+.category-title-container h1 {
+    font-size: 60px;
+    font-weight: 400;
+}
+
+ 
+.gallery-container {
+    width: 1200px;
+    width: 90%;
+  }
+
+/*  ========== LIGHTBOX W3S ========== */
+
+/* ===== GALLERY IMAGES ===== */
+.gallery-img-container .gallery-div {
+    /* !!! float:left NOT ALIGNING IMAGES PROPERLY !!! */
+    display: inline-block;
+    width: 32%;
+    /* width: 375px; */
+    margin: 5px;
+    /* border: 3px solid rgb(86, 86, 249); */
+  }
+  
+  
+  img.hover-shadow {
+    width: 100%;
+    transition: 0.3s;
+  }
+  
+  .hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+  }
+  
+  
+  /* The Modal (background) */
+  
+  /* FADE IN AMIMATION FOR MODAL AND MODAL IMGS */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+  
+    width: 100%;
+    height: 100%;
+  
+    overflow: auto;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.97);
+  /* FADE IN MODAL */
+    animation: fadeIn .7s;
+    /* border: 3px solid rgb(212, 91, 43); */
+  }
+  
+  /* !!!!! FADE OUT / HIDE IS DONE WITH closeModal() !!!!! */
+  .modal.fade-out {
+    animation: fadeOut 1s;
+  }
+  
+  img.modal-img {
+      width: 75%;
+      animation: fadeIn .5s;
+      /* height: 50%; */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    text-align: center;
+  
+    position: relative;
+    background-color: #fefefe;
+    background-color: #15191921;
+    margin: 1% auto;
+    width: 90%;
+    max-width: 1200px;
+  
+    /* border: 3px solid rgb(128, 0, 43); */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* ===== MODAL IMG CONTAIMERS ===== */
+  /* Hide the slides by default */
+  .modal-img-div {
+    display: none;
+    width: 53%;
+    margin: auto;
+  
+    /* overflow: scroll; */
+    /* max-height: 600px; */
+    /* border: 3px solid rgb(254, 176, 31); */
+  }
+  
+  .modal-img-div.fade-out {
+    animation: fadeOut .75s;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    /* width: auto; */
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  .prev {
+    left: 0;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .image-counter-div {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Caption text */
+  .caption-container {
+    height: 20px;
+    height: 1%;
+    text-align: center;
+    background-color: black;
+    padding: 2px 16px;
+    color: white;
+    
+    /* border: 3px solid rgb(255, 218, 149); */
+  }
+  
+  .thumbnail-container {
+    /* display: block; */
+    /* height: fit-content; */
+    /* height: 200px; */
+    width: 75%;
+    margin: auto;
+    /* !!! MAKE x-scroll WORK !!! */
+    overflow: scroll;
+  
+    /* border: 3px solid rgb(27, 196, 27); */
+  }
+  
+  /* Create 3 equal columns that floats next to eachother */
+  .thumbnail-container .thumbnail-div {
+    /* float: left; */
+    display: inline-block;
+    width: 10%;
+    margin: 0px 1px;
+    /* height: 100%; */
+    /* border: 3px solid rgb(238, 238, 31); */
+  }
+  
+  /* ===== THUMBNAIL IMAGES ===== */
+  img.thumbnail-image {
+    width: 100%;
+    /* margin: 2px; */
+    opacity: 0.6;
+  
+    /* border: 3px solid rgb(219, 34, 34); */
+  }
+  
+  .active,
+  .thumbnail-image:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  
+  
+  
+  

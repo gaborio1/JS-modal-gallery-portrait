@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <!-- GOOGLE FONTS -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+        <!-- FONT AWEESOME ICONS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="modal-portrait.css">
+        <title>JS modal gallery portrait style</title>
+    </head>
+    <body>
+            <div class="main-content">
+                <div class="main-coloumn">
+                    
+                    <div class="category-title-container">
+                        <h1 class="category-title">model</h1>
+                        <h2>js modal/lightbox portrait 3:2</h1>
+                    </div>
+                    <!-- !!! THIS IS THE SKELETON OF THE PAGE, ALL OTHER CONTENT IS CREATED BY modal.js !!! -->
+                    <!-- !!! OPEN DEV CONSOLE TO SEE !!! -->
+                    <div class="gallery-container">
+
+                        <!-- GALLERY IMAGES (to open the modal when clicked) -->
+                        <!--  div.row's CONTENT IS DYNAMICALLY CREATED BY js-lightbox.js AS SEEN BELOW IN COMMENTS-->
+                        <div class="gallery-img-container">
+                            <!-- <div class="column">
+                                <img src="../images/nature-1.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+                            </div> -->
+                        </div>
+                        
+                        <!-- The Modal/Lightbox -->
+                        <!--  div.modal-content's CONTENT IS DYNAMICALLY CREATED BY js-lightbox.js AS SEEN BELOW IN COMMENTS-->
+                        <div id="modal" class="modal">
+                            <span class="close cursor" onclick="closeModal()">&times;</span>
+                            <div class="modal-content">
+                                <div class="modal-img-container"></div>
+                            
+                                <!-- <div class="mySlides">
+                                    <div class="numbertext">1 / 7</div>
+                                    <img class="modal-img" src="../images/nature-1.jpg" style="width:75%">
+                                </div> -->
+
+                                <!-- CONTROL ARROWS (Next/previous controls) -->
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            
+                                <!-- CAPTION TEXT (Caption text) -->
+                                <!-- ONLY CONTAINER DIV IS USED AS A SPACER BETWEEN MODAL AND THUMBNAILS -->
+                                <div class="caption-container">
+                                    <!-- <p id="caption"></p> -->
+                                </div>
+                            
+                                <!-- THUMBNAIL GALLERY (Thumbnail image controls) -->
+                                <!--  div.thumbnail-container's CONTENT IS DYNAMICALLY CREATED BY js-lightbox.js AS SEEN BELOW IN COMMENTS-->
+
+                                <div class="thumbnail-container">
+                                     <!-- <div class="column">
+                                        <img class="demo" src="../images/nature-1.jpg" onclick="currentSlide(1)" alt="Nature">
+                                    </div> -->
+                                 </div> 
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>    
+            
+        <script src="modal.js" type="text/javascript"></script>
+    </body>
+</html>
