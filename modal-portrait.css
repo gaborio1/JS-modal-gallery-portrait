@@ -1,11 +1,4 @@
 :root {
-    /* --main-background: #75bdc16f; */
-    --main-background: #ffffff;
-    --title-blue: #56d2e2;
-    --sub-title-orange: #fdae81;
-    --category-grey: #d6d6d6cf;
-    /* --category-grey: #56d2e2; */
-
     --max-width: 100%;
     --main-content-1400: 1400px;
   }
@@ -24,16 +17,14 @@ body {
 }
 
 h1 {
-    font-size: 45px;
-    font-weight: 100;
+    font-size: 60px;
+	font-weight: 400;
 }
 
 h2 {
     font-size: 30px;
     font-weight: 200;
 }
-
-/* h3 {} */
 
 p {
     font-size: 15px;
@@ -75,12 +66,6 @@ p {
     margin: 45px 0px 90px 0px;
     /* border: 3px solid cyan; */
 }
-
-.category-title-container h1 {
-    font-size: 60px;
-    font-weight: 400;
-}
-
  
 .gallery-container {
     width: 1200px;
@@ -135,7 +120,6 @@ p {
     height: 100%;
   
     overflow: auto;
-    background-color: black;
     background-color: rgba(0, 0, 0, 0.97);
   /* FADE IN MODAL */
     animation: fadeIn .7s;
@@ -148,38 +132,39 @@ p {
   }
   
   img.modal-img {
-      width: 75%;
-      animation: fadeIn .5s;
-      /* height: 50%; */
+      width: 100%;
+	  /* NOT IN USE */
+      /* animation: fadeIn .5s; */
   }
   
   /* Modal Content */
   .modal-content {
+	position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-  
+    justify-content: space-around;
+	width: 90%;
+    max-width: 1200px;
     text-align: center;
-  
-    position: relative;
-    background-color: #fefefe;
     background-color: #15191921;
     margin: 1% auto;
-    width: 90%;
-    max-width: 1200px;
-  
-    /* border: 3px solid rgb(128, 0, 43); */
+  	/* border: 3px solid rgb(128, 0, 43); */
   }
   
   /* The Close Button */
   .close {
-    color: white;
+    z-index: 2;
     position: absolute;
     top: 10px;
-    right: 25px;
+    right: 10px;
+	color: white;
     font-size: 35px;
     font-weight: bold;
+	line-height: 1.8rem;
+	padding: 1px 5px 0px 5px;
+    border-radius: .25rem;
+    background: rgba(0, 0, 0, 0.252);
   }
   
   .close:hover,
@@ -189,15 +174,18 @@ p {
     cursor: pointer;
   }
   
+  /* !!! THIS DIV HAS TO BE RELATIVE AS IT CONTAINS CLOSE/PREV/NEXT (absolute) !!!  */
+.modal-img-container {
+	position: relative;
+	width: 35%;
+	/* border: 3px solid blue; */
+}
+
   /* ===== MODAL IMG CONTAIMERS ===== */
-  /* Hide the slides by default */
   .modal-img-div {
     display: none;
-    width: 53%;
-    margin: auto;
-  
-    /* overflow: scroll; */
-    /* max-height: 600px; */
+	position: relative;
+    width: 100%;
     /* border: 3px solid rgb(254, 176, 31); */
   }
   
@@ -208,17 +196,16 @@ p {
   /* Next & previous buttons */
   .prev,
   .next {
-    cursor: pointer;
+    z-index: 2;
     position: absolute;
-    top: 45%;
-    /* width: auto; */
+    top: 44%;
     padding: 16px;
-    margin-top: -50px;
     color: white;
     font-weight: bold;
     font-size: 20px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
+	cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
   }
@@ -241,22 +228,25 @@ p {
   
   /* Number text (1/3 etc) */
   .image-counter-div {
+	position: absolute;
+    top: 10px;
+	left: 10px;
     color: #f2f2f2;
     font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
+    padding: 5px 5px 5px 3px;
+    line-height: 1.3rem;
+	letter-spacing: -0.05rem;
+    border-radius: .25rem;
+    background: rgba(0, 0, 0, 0.252);
   }
   
   /* Caption text */
   .caption-container {
-    height: 20px;
     height: 1%;
     text-align: center;
     background-color: black;
     padding: 2px 16px;
     color: white;
-    
     /* border: 3px solid rgb(255, 218, 149); */
   }
   
@@ -265,11 +255,9 @@ p {
     /* height: fit-content; */
     /* height: 200px; */
     width: 75%;
-    margin: auto;
     /* !!! MAKE x-scroll WORK !!! */
     overflow: scroll;
-  
-    /* border: 3px solid rgb(27, 196, 27); */
+  	/* border: 3px solid rgb(27, 196, 27); */
   }
   
   /* Create 3 equal columns that floats next to eachother */
@@ -278,14 +266,12 @@ p {
     display: inline-block;
     width: 10%;
     margin: 0px 1px;
-    /* height: 100%; */
     /* border: 3px solid rgb(238, 238, 31); */
   }
   
   /* ===== THUMBNAIL IMAGES ===== */
   img.thumbnail-image {
     width: 100%;
-    /* margin: 2px; */
     opacity: 0.6;
   
     /* border: 3px solid rgb(219, 34, 34); */
