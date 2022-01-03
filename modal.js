@@ -3,18 +3,48 @@
 
 // OPEN MODAL
 const openModal = () => {
-    document.getElementById("modal").style.display = "flex";
-  }
+	document.getElementById("modal").style.display = "flex";
+	// SLIDE IN AND ENLARGE
+	gsap.fromTo(
+		".modal",
+		{
+			x: "-100%",
+			// scale: 0.3,
+		},
+		{
+			x: "0%",
+			scale: 1,
+			duration: 1,
+			ease: "power4"
+		}
+	);
+};
   
-  const closeModal = () => {
-    const modal = document.getElementById("modal");
-    modal.classList.add("fade-out");
-    setTimeout(function () {
-      modal.classList.remove("fade-out");
-          modal.style.display = "none";
-  
-        }, 950);
-  }
+// CLOSE MODAL
+const closeModal = () => {
+	const modal = document.getElementById("modal");
+	// SLIDE OUT AND SHRINK
+	gsap.fromTo(
+		".modal",
+		{
+			x: "0%",
+			scale: 1,
+		},
+		{
+			x: "100%",
+			// scale: 0.3,
+			duration: 2,
+			ease: "power4"
+		}
+	);
+
+	modal.classList.add("fade-out");
+	// FADE OUT AND HIDE WHEN TRANSPARENT
+	setTimeout(function () {
+		modal.classList.remove("fade-out");
+		modal.style.display = "none";
+	}, 950);
+};
   
   let slideIndex = 1;
   
@@ -185,6 +215,27 @@ const openModal = () => {
   addListenerGalleryImg();
   addListenerThumbnailImg();
   
+
+  
+const skewSetter = gsap.quickSetter(".hover-shadow", "skewY", "deg");
+const proxy = { skew: 0 }
+
+ScrollTrigger.create({
+	onUpdate: self => {
+		const skew = self.getVelocity() / -800;
+		// console.log(skew);
+		if (Math.abs(skew) > Math.abs(proxy.skew)) {
+			proxy.skew = skew;
+			gsap.to(proxy, {
+				skew: 0,
+				duration: 0.5,
+				ease: "power3",
+				overwrite: true,
+				onUpdate: () => skewSetter(proxy.skew)
+			})
+		}
+	}
+});
 
 // ==================== COMMENTS =====================
 
@@ -412,13 +463,7 @@ const openModal = () => {
 // addListenerThumbnailImg();
 
 
-
-
-
-
-  
-  
-  // !!!!!!!!!! THESE DONT WORK IN CREATEDIV LOOPS !!!!!!!!!!
+// !!!!!!!!!! THESE DONT WORK IN CREATEDIV LOOPS !!!!!!!!!!
   
   //   thumbnailDivImg.onclick = currentSlide(Number(index));
   //   thumbnailDivImg.addEventListener("click", currentSlide(Number(index)));
